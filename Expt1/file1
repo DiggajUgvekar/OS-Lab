@@ -1,0 +1,185 @@
+diggaj@ubuntu-test:~$ cd Desktop
+diggaj@ubuntu-test:~/Desktop$ cd Codes
+diggaj@ubuntu-test:~/Desktop/Codes$ cd Diggaj
+diggaj@ubuntu-test:~/Desktop/Codes/Diggaj$ script diggaj
+Script started, output log file is 'diggaj'.
+diggaj@ubuntu-test:~/Desktop/Codes/Diggaj$ date
+Sunday 13 August 2023 12:59:50 PM IST
+diggaj@ubuntu-test:~/Desktop/Codes/Diggaj$ cal
+    August 2023       
+Su Mo Tu We Th Fr Sa  
+       1  2  3  4  5  
+ 6  7  8  9 10 11 12  
+13 14 15 16 17 18 19  
+20 21 22 23 24 25 26  
+27 28 29 30 31        
+                      
+diggaj@ubuntu-test:~/Desktop/Codes/Diggaj$ cal 9 2023
+   September 2023     
+Su Mo Tu We Th Fr Sa  
+                1  2  
+ 3  4  5  6  7  8  9  
+10 11 12 13 14 15 16  
+17 18 19 20 21 22 23  
+24 25 26 27 28 29 30  
+                      
+diggaj@ubuntu-test:~/Desktop/Codes/Diggaj$ cal 2023
+                            2023
+      January               February               March          
+Su Mo Tu We Th Fr Sa  Su Mo Tu We Th Fr Sa  Su Mo Tu We Th Fr Sa  
+ 1  2  3  4  5  6  7            1  2  3  4            1  2  3  4  
+ 8  9 10 11 12 13 14   5  6  7  8  9 10 11   5  6  7  8  9 10 11  
+15 16 17 18 19 20 21  12 13 14 15 16 17 18  12 13 14 15 16 17 18  
+22 23 24 25 26 27 28  19 20 21 22 23 24 25  19 20 21 22 23 24 25  
+29 30 31              26 27 28              26 27 28 29 30 31     
+                                                                  
+
+       April                  May                   June          
+Su Mo Tu We Th Fr Sa  Su Mo Tu We Th Fr Sa  Su Mo Tu We Th Fr Sa  
+                   1      1  2  3  4  5  6               1  2  3  
+ 2  3  4  5  6  7  8   7  8  9 10 11 12 13   4  5  6  7  8  9 10  
+ 9 10 11 12 13 14 15  14 15 16 17 18 19 20  11 12 13 14 15 16 17  
+16 17 18 19 20 21 22  21 22 23 24 25 26 27  18 19 20 21 22 23 24  
+23 24 25 26 27 28 29  28 29 30 31           25 26 27 28 29 30     
+30                                                                
+
+        July                 August              September        
+Su Mo Tu We Th Fr Sa  Su Mo Tu We Th Fr Sa  Su Mo Tu We Th Fr Sa  
+                   1         1  2  3  4  5                  1  2  
+ 2  3  4  5  6  7  8   6  7  8  9 10 11 12   3  4  5  6  7  8  9  
+ 9 10 11 12 13 14 15  13 14 15 16 17 18 19  10 11 12 13 14 15 16  
+16 17 18 19 20 21 22  20 21 22 23 24 25 26  17 18 19 20 21 22 23  
+23 24 25 26 27 28 29  27 28 29 30 31        24 25 26 27 28 29 30  
+30 31                                                             
+
+      October               November              December        
+Su Mo Tu We Th Fr Sa  Su Mo Tu We Th Fr Sa  Su Mo Tu We Th Fr Sa  
+ 1  2  3  4  5  6  7            1  2  3  4                  1  2  
+ 8  9 10 11 12 13 14   5  6  7  8  9 10 11   3  4  5  6  7  8  9  
+15 16 17 18 19 20 21  12 13 14 15 16 17 18  10 11 12 13 14 15 16  
+22 23 24 25 26 27 28  19 20 21 22 23 24 25  17 18 19 20 21 22 23  
+29 30 31              26 27 28 29 30        24 25 26 27 28 29 30  
+                                            31                    
+diggaj@ubuntu-test:~/Desktop/Codes/Diggaj$ who
+diggaj   tty2         2023-08-13 12:50 (tty2)
+diggaj@ubuntu-test:~/Desktop/Codes/Diggaj$ whoami
+diggaj
+diggaj@ubuntu-test:~/Desktop/Codes/Diggaj$ ps
+    PID TTY          TIME CMD
+   3215 pts/1    00:00:00 bash
+   3229 pts/1    00:00:00 ps
+diggaj@ubuntu-test:~/Desktop/Codes/Diggaj$ ls
+diggaj
+diggaj@ubuntu-test:~/Desktop/Codes/Diggaj$ ls -l
+total 4
+-rw-rw-r-- 1 diggaj diggaj 4096 Aug 13 13:00 diggaj
+diggaj@ubuntu-test:~/Desktop/Codes/Diggaj$ ls >file1
+diggaj@ubuntu-test:~/Desktop/Codes/Diggaj$ cat file1
+diggaj
+file1
+diggaj@ubuntu-test:~/Desktop/Codes/Diggaj$ cat >file2
+i am studying in gec
+diggaj@ubuntu-test:~/Desktop/Codes/Diggaj$ cat file2
+i am studying in gec
+diggaj@ubuntu-test:~/Desktop/Codes/Diggaj$ cat >>file2
+Ponda Goa
+diggaj@ubuntu-test:~/Desktop/Codes/Diggaj$ cat file2
+i am studying in gec
+Ponda Goa
+diggaj@ubuntu-test:~/Desktop/Codes/Diggaj$ wc file2
+ 2  7 31 file2
+diggaj@ubuntu-test:~/Desktop/Codes/Diggaj$ wc -w
+file2
+1
+diggaj@ubuntu-test:~/Desktop/Codes/Diggaj$ wc -w file2
+7 file2
+diggaj@ubuntu-test:~/Desktop/Codes/Diggaj$ wc -l file2
+2 file2
+diggaj@ubuntu-test:~/Desktop/Codes/Diggaj$ wc -c file2
+31 file2
+diggaj@ubuntu-test:~/Desktop/Codes/Diggaj$ uname
+Linux
+diggaj@ubuntu-test:~/Desktop/Codes/Diggaj$ tty
+/dev/pts/1
+diggaj@ubuntu-test:~/Desktop/Codes/Diggaj$ pwd
+/home/diggaj/Desktop/Codes/Diggaj
+diggaj@ubuntu-test:~/Desktop/Codes/Diggaj$ echo "Hello"
+Hello
+diggaj@ubuntu-test:~/Desktop/Codes/Diggaj$ printf "Hello, %s" "Diggaj"
+Hello, Diggajdiggaj@ubuntu-test:~/Desktop/Codes/Diggaj$ 
+diggaj@ubuntu-test:~/Desktop/Codes/Diggaj$ bc
+bc 1.07.1
+Copyright 1991-1994, 1997, 1998, 2000, 2004, 2006, 2008, 2012-2017 Free Software Foundation, Inc.
+This is free software with ABSOLUTELY NO WARRANTY.
+For details type `warranty'. 
+8*9
+72
+5+5
+10
+80/8
+10
+
+diggaj@ubuntu-test:~/Desktop/Codes/Diggaj$ passwd
+Changing password for diggaj.
+Current password: 
+New password: 
+BAD PASSWORD: The password is shorter than 8 characters
+New password: 
+BAD PASSWORD: The password contains the user name in some form
+New password: 
+BAD PASSWORD: The password fails the dictionary check - it is too simplistic/systematic
+passwd: Have exhausted maximum number of retries for service
+passwd: password unchanged
+diggaj@ubuntu-test:~/Desktop/Codes/Diggaj$ passwd
+Changing password for diggaj.
+Current password: 
+\New password: 
+Retype new password: 
+passwd: password updated successfully
+diggaj@ubuntu-test:~/Desktop/Codes/Diggaj$ stty
+speed 38400 baud; line = 0;
+-brkint -imaxbel iutf8
+diggaj@ubuntu-test:~/Desktop/Codes/Diggaj$ rm file1
+diggaj@ubuntu-test:~/Desktop/Codes/Diggaj$ ls
+diggaj  file2
+diggaj@ubuntu-test:~/Desktop/Codes/Diggaj$ mv file2 f1
+diggaj@ubuntu-test:~/Desktop/Codes/Diggaj$ ls
+diggaj  f1
+diggaj@ubuntu-test:~/Desktop/Codes/Diggaj$ cat >f2
+Ponda Goa
+diggaj@ubuntu-test:~/Desktop/Codes/Diggaj$ 
+diggaj@ubuntu-test:~/Desktop/Codes/Diggaj$ cat >f3
+diggaj@ubuntu-test:~/Desktop/Codes/Diggaj$ cp f2 f3
+diggaj@ubuntu-test:~/Desktop/Codes/Diggaj$ cat f3
+Ponda Goa
+diggaj@ubuntu-test:~/Desktop/Codes/Diggaj$ cmp f2 f3
+diggaj@ubuntu-test:~/Desktop/Codes/Diggaj$ cmp f1 f2
+f1 f2 differ: byte 1, line 1
+diggaj@ubuntu-test:~/Desktop/Codes/Diggaj$ diff f1 f2
+1d0
+< i am studying in gec
+diggaj@ubuntu-test:~/Desktop/Codes/Diggaj$ comm f1 f2
+i am studying in gec
+		Ponda Goa
+diggaj@ubuntu-test:~/Desktop/Codes/Diggaj$ mkdir assignment
+diggaj@ubuntu-test:~/Desktop/Codes/Diggaj$ cd assignment
+diggaj@ubuntu-test:~/Desktop/Codes/Diggaj/assignment$ cd ..
+diggaj@ubuntu-test:~/Desktop/Codes/Diggaj$ rmdir assignment
+diggaj@ubuntu-test:~/Desktop/Codes/Diggaj$ ls
+diggaj  f1  f2  f3
+diggaj@ubuntu-test:~/Desktop/Codes/Diggaj$ ls -l f1
+-rw-rw-r-- 1 diggaj diggaj 31 Aug 13 13:01 f1
+diggaj@ubuntu-test:~/Desktop/Codes/Diggaj$ chmod u+x f1
+diggaj@ubuntu-test:~/Desktop/Codes/Diggaj$ chmod u+x f1
+diggaj@ubuntu-test:~/Desktop/Codes/Diggaj$ ls -l f1
+-rwxrw-r-- 1 diggaj diggaj 31 Aug 13 13:01 f1
+diggaj@ubuntu-test:~/Desktop/Codes/Diggaj$ chmod ugo+x f1
+diggaj@ubuntu-test:~/Desktop/Codes/Diggaj$ ls -l f1
+-rwxrwxr-x 1 diggaj diggaj 31 Aug 13 13:01 f1
+diggaj@ubuntu-test:~/Desktop/Codes/Diggaj$ chmod g-w f1
+diggaj@ubuntu-test:~/Desktop/Codes/Diggaj$ ls -l f1
+-rwxr-xr-x 1 diggaj diggaj 31 Aug 13 13:01 f1
+diggaj@ubuntu-test:~/Desktop/Codes/Diggaj$ chmod 761 f1
+diggaj@ubuntu-test:~/Desktop/Codes/Diggaj$ ls -l f1
+-rwxrw---x 1 diggaj diggaj 31 Aug 13 13:01 f1
+diggaj@ubuntu-test:~/Desktop/Codes/Diggaj$ 
