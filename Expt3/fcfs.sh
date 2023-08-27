@@ -34,6 +34,24 @@ echo "Average Turn around time"
 echo "$avg2"
 
 echo "Gantt Chart"
+for((i=0;i<$n*8;i++))
+do
+printf "-"
+done
+printf "\n"
+
+for((i=0;i<$n;i++))
+do
+printf "|   P%d  " $(($i+1))
+done
+printf "|\n"
+
+for((i=0;i<$n*8;i++))
+do
+printf "-"
+done
+printf "\n"
+
 for((i=0;i<$n;i++))
 do
 printf "${wt[$i]}\t"
