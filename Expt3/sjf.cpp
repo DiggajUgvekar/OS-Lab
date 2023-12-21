@@ -8,6 +8,7 @@ cout<<"Enter Burst Time"<<endl;
     {
         cin>>burst_time[i];
     }
+    cout<<endl;
 }
 
 void calculate_waiting(int n ,int wt_time[],int burst_time[]){
@@ -32,7 +33,7 @@ void display(int n,int wt_time[],int turn_around[]){
     {
         cout<<wt_time[i]<<"  ";
     }
-     cout<<"\nTurn around time of processes"<<endl;
+     cout<<"\n\nTurn around time of processes"<<endl;
       for (int i = 0; i < n; i++)
     {
         cout<<turn_around[i]<<"  ";
@@ -44,11 +45,7 @@ void gchart(int n ,int burst_time[]){
     cout<<"\nGantt Chart:"<<endl;
     int current_time = 0;
     int size=3;
-    for (int i = 0; i < n*7; i++)
-    {
-        cout<<'-';
-    }
-    cout<<'-';
+
     cout<<endl;
     cout<<"|  ";
     for (int i = 0; i < n; i++)
@@ -56,12 +53,7 @@ void gchart(int n ,int burst_time[]){
         cout<<'p'<<i+1<<"  |  ";
     }
     cout<<"\n";
-    for (int i = 0; i < n*7; i++)
-    {
-        cout<<'-';
-    }
-    cout<<'-';
-    cout<<endl;
+
      for (int i = 0; i < n; i++)
     {
         cout<<current_time<<"      ";
@@ -74,6 +66,7 @@ void gchart(int n ,int burst_time[]){
 
     cout<<"\n";
 }
+
 
 void avg_tat(int n,int turn_around[],int wt_time[]){
     float avg_sum =0.0;
@@ -88,7 +81,19 @@ void avg_tat(int n,int turn_around[],int wt_time[]){
     cout<< "\nAverage Turn around time is "<<(avg_sum/n)<<endl;
 }
 
-
+void selectionSort(int arr[], int n)
+{
+    int i, j, min_idx;
+    for (i = 0; i < n - 1; i++) {
+        min_idx = i;
+        for (j = i + 1; j < n; j++) {
+            if (arr[j] < arr[min_idx])
+                min_idx = j;
+        }
+        if (min_idx != i)
+            swap(arr[min_idx], arr[i]);
+    }
+}
 int main(){
     int n; //no of processes
 
@@ -98,6 +103,8 @@ int main(){
 
     int burst_time[n]={0};
     input_burst_time(n,burst_time);
+    //sort the array in ascending
+    selectionSort(burst_time,n);
     int wt_time[n]={0};
     calculate_waiting(n,wt_time,burst_time);
 
