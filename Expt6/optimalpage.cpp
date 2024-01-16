@@ -27,7 +27,6 @@ int optimalPageReplacement(const vector<int>& referenceString, int capacity) {
                 int furthestNextUse = -1;
 
                 for (const auto& entry : pageNextUse) {
-                    int nextUseIndex = entry.second;
                     auto futureUseIt = find(referenceString.begin() + i, referenceString.end(), entry.first);
 
                     if (futureUseIt == referenceString.end()) {
@@ -46,7 +45,7 @@ int optimalPageReplacement(const vector<int>& referenceString, int capacity) {
 
                 // Remove the page with the furthest next use
                 pageNextUse.erase(pageToReplace);
-                cout << "Page " << pageToReplace << " is replaced by Page " << currentPage << " (Page Fault)\n";
+                cout << "Page " << pageToReplace << " is replaced by Page " << currentPage << "\n";
             }
 
             // Add the current page to memory with its next use index
