@@ -1,77 +1,72 @@
-#include <iostream>
-#include <iomanip>
-#include <algorithm>
+#include <bits/stdc++.h>
 
 using namespace std;
 
-int total_head_movement = 0, n, current_head;
-int request[30];
+int scan(vector<int> &rq, int current_head) {
+    int head = current_head, distance;
+    vector<int> seq;
+    sort(rq.begin(), rq.end());
+    auto it = lower_bound(rq.begin(), rq.end(), head);        //element greater than head
+    int midPos;
+    int var=1;
 
-void right_display()
-{
-    for (int i = 0; i < n; i++)
-    {
-        if (request[i] < current_head)
-            continue;
-        else
-            cout << request[i] << " ";
+    // we find a number that is less than head or equal to in  the vector
+    while(var==1){
+         if (head > *it) {
+        midPos = it - rq.begin();
+        var=0;
+    } else {
+        --it;
+        midPos = it - rq.begin();
     }
-    for (int i = n - 1; i >= 0; i--)
-    {
-        if (request[i] > current_head)
-            continue;
-        else
-            cout << request[i] << " ";
     }
-}
+   
+    //stops at last element(does not go to 0)
+    for (int i = midPos; i >= 0; i--) {
+        distance += abs(rq[i] - current_head);
+        current_head = rq[i];
+        seq.push_back(rq[i]);
+        
+    }
+    for(int i=midPos+1;i<rq.size();i++){
+         distance += abs(rq[i] - current_head);
+        current_head = rq[i];
+        seq.push_back(rq[i]); 
+    }
 
-void left_display()
-{
-    for (int i = n - 1; i >= 0; i--)
-    {
-        if (request[i] > current_head)
-            continue;
-        else
-            cout << request[i] << " ";
+    cout << "Seek sequence is: " << head << "-->";
+    for (int i = 0; i < seq.size(); i++) {
+        
+        if (i == seq.size() - 1) {
+            cout << seq[i];
+        }else{
+            cout << seq[i] << "-->";
+        }
     }
-    for (int i = 0; i < n; i++)
-    {
-        if (request[i] < current_head)
-            continue;
-        else
-            cout << request[i] << " ";
-    }
-}
-
-int main()
-{
-    int block, direction;
-    cout << "Enter the Block Size of the Disk: ";
-    cin >> block;
-    cout << "Enter the number of Disk Requests: ";
-    cin >> n;
-    cout << "Enter the Disk Requests to be Searched : ";
-    for (int i = 0; i < n; i++)
-        scanf("%d", &request[i]);
-    sort(request, request + n);
+   
     cout << endl;
-    cout << "Enter the Current Disk Head Position: ";
-    cin >> current_head;
-    cout << "Enter Direction [Left - 0; Right - 1]: ";
-    cin >> direction;
-    cout << "Track sequence: " << current_head << " ";
-    if (direction == 0)
-    {
-        total_head_movement += (current_head - request[0]);
-        total_head_movement += (request[n - 1] - request[0]);
-        left_display();
-    }
-    else
-    {
-        total_head_movement += (request[n - 1] - current_head);
-        total_head_movement += (request[n - 1] - request[0]);
-        right_display();
-    }
-    cout << endl
-         << "The Total Disk Head Movement is: " << total_head_movement;
+
+    return distance;  // Return the total seek distance
 }
+
+int main() {
+//    vector<int> requests = {98, 183, 37, 122, 14, 124, 65, 67};
+//    int current_head = 53;
+	int qsize,current_head;
+		cout <<"enter the queue size:";
+		cin>>qsize;
+		vector<int> requests;
+		requests.resize(qsize);
+		cout<<"enter the values of request queue"<<endl;
+		for(int i =0;i<qsize;i++){
+			cin>>requests[i];
+		}
+		cout<<"enter the current pos of head"<<endl;
+		cin>>current_head;
+    int seek_distance = scan(requests, current_head);
+
+    cout << "Total seek distance: " << seek_distance << endl;
+
+    return 0;
+}
+
