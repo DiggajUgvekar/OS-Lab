@@ -1,65 +1,73 @@
 #include <iostream>
-#include <list>
+#include <vector>
 #include <unordered_map>
+#include <algorithm>
+#include <climits>
 
 using namespace std;
 
-class LRUCache {
-private:
-    int capacity;
-    list<int> recentList;                      // List to maintain the order of recently used pages
-    unordered_map<int, list<int>::iterator> pageMap; // Map to store page numbers and their positions in the list
-    int pageFaults;
+int lruPageReplacement(const vector<int>& referenceString, int capacity) {
+    unordered_map<int, int> pageLastUsed;  // Maps page numbers to their last use index
+    int pageFaults = 0;
 
-public:
-    LRUCache(int cap) : capacity(cap), pageFaults(0) {}
+    for (int i = 0; i < referenceString.size(); ++i) {
+        int currentPage = referenceString[i];
 
-    void refer(int pageNum) {
-        // If page is not in the cache
-        if (pageMap.find(pageNum) == pageMap.end()) {
-            // Check if the cache is full
-            if (recentList.size() == capacity) {
-                int leastRecent = recentList.back();
-                recentList.pop_back();
-                pageMap.erase(leastRecent);
-                cout << "Page " << leastRecent << " is replaced by Page " << pageNum << " (Page Fault)\n";
-            }
-            ++pageFaults;
+        // Check if the page is in memory
+        if (pageLastUsed.find(currentPage) != pageLastUsed.end()) {
+            cout << "Page " << currentPage << " is already in memory (Page Hit)\n";
+
+            // Update the last used index for the current page
+            pageLastUsed[currentPage] = i;
         } else {
-            // If the page is in the cache, remove it from the current position
-            recentList.erase(pageMap[pageNum]);
+            // Page fault: page is not in memory
+            ++pageFaults;
+
+            // Check if the memory is full
+            if (pageLastUsed.size() == capacity) {
+                // Find the least recently used page
+                int pageToReplace = INT_MAX;
+                int leastRecentlyUsed = INT_MAX;
+
+                for (const auto& entry : pageLastUsed) {
+                    if (entry.second < leastRecentlyUsed) {
+                        leastRecentlyUsed = entry.second;
+                        pageToReplace = entry.first;
+                    }
+                }
+
+                // Remove the least recently used page
+                pageLastUsed.erase(pageToReplace);
+                cout << "Page " << pageToReplace << " is replaced by Page " << currentPage << "\n";
+            }
+
+            // Add the current page to memory with its last used index
+            pageLastUsed[currentPage] = i;
+            cout << "Page " << currentPage << " is loaded into memory (Page Fault)\n";
         }
-
-        // Add the page to the front of the list and update its position in the map
-        recentList.push_front(pageNum);
-        pageMap[pageNum] = recentList.begin();
-        cout << "Page " << pageNum << " is loaded into memory (Page Fault)\n";
     }
 
-    int getPageFaults() const {
-        return pageFaults;
-    }
-};
+    return pageFaults;
+}
 
 int main() {
     int capacity;
     cout << "Enter the capacity of the memory: ";
     cin >> capacity;
 
-    LRUCache lruCache(capacity);
-
     int n;
     cout << "Enter the number of reference string elements: ";
     cin >> n;
 
+    vector<int> referenceString(n);
     cout << "Enter the reference string elements:\n";
     for (int i = 0; i < n; ++i) {
-        int pageNum;
-        cin >> pageNum;
-        lruCache.refer(pageNum);
+        cin >> referenceString[i];
     }
 
-    cout << "Total Page Faults: " << lruCache.getPageFaults() << endl;
+    int pageFaults = lruPageReplacement(referenceString, capacity);
+
+    cout << "Total Page Faults: " << pageFaults << endl;
 
     return 0;
 }
