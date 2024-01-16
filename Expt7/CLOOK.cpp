@@ -4,12 +4,11 @@
 
 using namespace std;
 
-int scan(vector<int> &rq, int current_head,int limit) {
+int scan(vector<int> &rq, int current_head) {
     int head = current_head, distance;
     vector<int> seq;
     sort(rq.begin(), rq.end());
     auto it = lower_bound(rq.begin(), rq.end(), head);
-    int mid = *it;
     int midPos;
     int var=1;
     while(var==1){
@@ -25,9 +24,8 @@ int scan(vector<int> &rq, int current_head,int limit) {
 
     for (int i = midPos; i < rq.size(); i++) {
         distance += abs(rq[i] - current_head);
-
-            current_head = rq[i];
-            seq.push_back(rq[i]);
+        current_head = rq[i];
+        seq.push_back(rq[i]);
 
     }
     for(int i=0;i<midPos;i++){
@@ -64,10 +62,8 @@ int main() {
 		}
 		cout<<"enter the current pos of head"<<endl;
 		cin>>current_head;
-    int limit;
-    cout<<"enter the limt of the memory"<<endl;
-    cin>>limit;
-    int seek_distance = scan(requests, current_head,limit);
+    
+    int seek_distance = scan(requests, current_head);
 
     cout << "Total seek distance: " << seek_distance << endl;
 
