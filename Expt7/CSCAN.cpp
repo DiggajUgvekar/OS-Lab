@@ -8,10 +8,11 @@ int scan(vector<int> &rq, int current_head,int limit) {
     int head = current_head, distance;
     vector<int> seq;
     sort(rq.begin(), rq.end());
-    auto it = lower_bound(rq.begin(), rq.end(), head);
-    int mid = *it;
+    auto it = lower_bound(rq.begin(), rq.end(), head);   //element greater than head
     int midPos;
     int var=1;
+
+    // we find a number that is greater than head or equal to in  the vector
     while(var==1){
          if (head < *it) {
         midPos = it - rq.begin();
